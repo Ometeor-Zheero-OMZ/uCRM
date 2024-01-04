@@ -124,3 +124,16 @@ resources/js/Pages/InertiaTest.vue
 </template>
 
 ```
+
+# 名前付きルート
+
+ziggy ライブラリにより名前付きルートが使える
+
+```vue
+InertiaTest.vue
+<Link :href="route('inertia.index')"></Link>
+
+routes/web.php use App\Http\Controllers\InertiaTestController; ...
+Route::get('/inertia/index', [InertiaTestController::class, 'index'])
+->name('inertia.index');
+```
