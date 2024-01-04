@@ -1,14 +1,10 @@
-もちろんです。以下は、Markdown 形式で整形された README.md の内容です。
-
-````markdown
-# Breeze のインストール
+## Breeze のインストール
 
 Breeze をインストールするには、次の Composer コマンドを実行してください:
 
 ```bash
 composer require laravel/breeze:^1 --dev
 ```
-````
 
 ## Inertia スタックの導入
 
@@ -116,9 +112,15 @@ php artisan route:list
 resources/js/Pages/InertiaTest.vue
 ```
 
-これで、Inertia をセットアップし、アプリケーションの構築を開始できます。
+```javascript
+<script setup>
+    import { Link } from '@inertiajs/inertia-vue3';
+</script>
 
-```
+<template>
+    Inertiaテストです。<br>
+    <a href="/">aタグでWelcomeに移動</a><br>
+    <Link href="/">LinkでWelcomeに移動</Link>
+</template>
 
-このように、Markdown形式で内容を整理しました。必要に応じて修正や調整を行ってください。
 ```
