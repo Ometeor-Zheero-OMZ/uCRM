@@ -1,71 +1,124 @@
+もちろんです。以下は、Markdown 形式で整形された README.md の内容です。
+
+````markdown
 # Breeze のインストール
 
-[composer require laravel/breeze:^1 --dev]
+Breeze をインストールするには、次の Composer コマンドを実行してください:
 
-# Inertia スタックを使用するための Vue のインストール
+```bash
+composer require laravel/breeze:^1 --dev
+```
+````
 
-`php artisan breeze:install vue`
+## Inertia スタックの導入
 
-# npm のインストールと起動確認
+Inertia スタックを使用するために Vue をインストールします:
 
-`npm install && npm run dev`
+```bash
+php artisan breeze:install vue
+```
 
-Inertia ver1.0 に伴い、一部ライブラリの変更
-package.json に下記二つのライブラリをついあして、'npm install'
-`"@inertiajs/inertia": "^0.11.0",`
-`"@inertiajs/inertia-vue3": "^0.6.0",`
+その後、npm の依存関係をインストールし、セットアップを確認します:
 
-./resources/js/app.js の一部変更
-`'import { createInertiaApp } from '@inertiajs/inertia-vue3';'`
+```bash
+npm install && npm run dev
+```
 
-# 仮想サーバを立てて動作確認
+Inertia のバージョン 1.0 に伴い、いくつかのライブラリの変更があります。`package.json`に次の 2 つのライブラリを追加し、`npm install`を実行します:
 
-ターミナルのタブを 3 つ開いておくとよい
+```json
+"@inertiajs/inertia": "^0.11.0",
+"@inertiajs/inertia-vue3": "^0.6.0"
+```
 
-1. フロント側
-   `npm run dev`
+`./resources/js/app.js`を更新します:
 
-2. バック（アプリ）側
-   `php artisan serve`
+```javascript
+import { createInertiaApp } from "@inertiajs/inertia-vue3";
+```
 
-3. 各種コマンド実行
+## 仮想サーバの起動と動作確認
 
-# あると便利な拡張機能
+以下の 3 つのターミナルタブを開いてください:
 
-GoogleChrome
-Vue.js devtools
+1. フロントエンド開発:
 
-Visual Studio Code
-Volar
+```bash
+npm run dev
+```
 
-# LaravelLBlade と Inertia の違い
+2. バックエンド（アプリ）開発:
 
-1. サーバサイド
-   Laravel Blade
-   `view('viewファイル名', compact(変数名))`
+```bash
+php artisan serve
+```
 
-Inertia
-`Inertia::render('コンポーネント名', [変数名])`
+3. 必要に応じてさまざまなコマンドを実行します。
 
-2. クライアントサイド
-   Laravel Blade
-   `<a href="">リンク</a>`
-   ページ内全ての情報を再読み込みする HTML
+## あると便利な拡張機能
 
-Inertia
-`<Link href="">`
-部分的に読み込む JSON
-読み込む量が少ない = 描画速度が早い
-SPA
+-   Google Chrome: Vue.js devtools
+-   Visual Studio Code: Volar
 
-# Link を確認してみる
+## Laravel Blade と Inertia の違い
 
-`routes/web.php
+### 1. サーバサイド
+
+#### Laravel Blade
+
+```php
+view('viewファイル名', compact(変数名))
+```
+
+#### Inertia
+
+```php
+Inertia::render('コンポーネント名', [変数名])
+```
+
+### 2. クライアントサイド
+
+#### Laravel Blade
+
+```html
+<a href="">リンク</a>
+```
+
+ページ内の情報をすべて再読み込みする HTML。
+
+#### Inertia
+
+```html
+<link href="" />
+```
+
+JSON を部分的に読み込む。読み込むデータが少ないため、描画速度が速く、SPA に適しています。
+
+## Link の確認
+
+`routes/web.php`を更新:
+
+```php
 Route::get('/inertia-test', function() {
     return Inertia::render('InertiaTest');
-});`
+});
+```
 
-ルートの確認は `php artisan route:list`
+次に、次のコマンドでルートを確認します:
 
-resources にファイル作成
-`resources/js/Pages/InertiaTest.vue`
+```bash
+php artisan route:list
+```
+
+`resources`ディレクトリにファイルを作成:
+
+```bash
+resources/js/Pages/InertiaTest.vue
+```
+
+これで、Inertia をセットアップし、アプリケーションの構築を開始できます。
+
+```
+
+このように、Markdown形式で内容を整理しました。必要に応じて修正や調整を行ってください。
+```
